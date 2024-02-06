@@ -1,3 +1,13 @@
+def is_digit(string):
+    if string.isdigit():
+       return True
+    else:
+        try:
+            float(string)
+            return True
+        except ValueError:
+            return False
+
 class Item:
     """
     Класс для представления товара в магазине.
@@ -43,8 +53,23 @@ class Item:
             """
         self.price = self.price * self.pay_rate
 
-    def instantiate_from_csv(cls, param):
+    @classmethod
+    def instantiate_from_csv(cls, path):
         pass
 
-    def string_to_number(cls, param):
-        pass
+    @staticmethod
+    def string_to_number(number):
+        """
+        Превращает вход (если возможно) в число формата int
+        :param number:
+        :return:
+        """
+        if isinstance(number, int) or isinstance(number, float):
+            return int(number)
+        elif isinstance(number, str) and is_digit(number):
+            return int(float(number))
+        else:
+            print('Это не число')
+            return None
+
+
