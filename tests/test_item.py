@@ -22,6 +22,11 @@ def test_init_apply_discount():
     assert item1.price == 8000
 
 
+def test_init_name_change():
+    assert item2.name == 'Ноутбук'
+    item1.name = 'New Name'
+    assert item1.name == 'New Name'
+
 
 
 
