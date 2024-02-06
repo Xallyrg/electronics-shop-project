@@ -34,7 +34,11 @@ def test_init_name_change_very_long():
 
 
 def test_init_instantiate_from_csv():
-    pass
+    Item.instantiate_from_csv('src/items.csv')  # создание объектов из данных файла
+    assert len(Item.all) == 7
+
+    item1 = Item.all[2]
+    assert item1.name == 'Смартфон'
 
 
 def test_init_string_to_number():

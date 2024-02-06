@@ -34,10 +34,18 @@ class Item:
 
     @property
     def name(self):
+        '''
+        позволяет смотреть на имя товара
+        :return:
+        '''
         return self.__name
 
     @name.setter
     def name(self, new_name):
+        '''
+        позволяет менять имя товара. Обрезает его до 10 символов
+        :return:
+        '''
         if len(new_name) < 11:
             self.__name = new_name
         else:
@@ -58,11 +66,17 @@ class Item:
         self.price = self.price * self.pay_rate
 
     @classmethod
-    def instantiate_from_csv(cls):
+    def instantiate_from_csv(cls, path):
+        '''
+        Достает данные из файла и создает товары по этим данным
+        :param path:
+        :return:
+        '''
         list_of_items = []
-        with open('items.csv', newline='') as csvfile:
+        with open(path, newline='') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
+                # print(row)
                 name = row['name']
                 price = float(row['price'])
                 quantity = int(row['quantity'])
@@ -84,3 +98,4 @@ class Item:
         else:
             print('Это не число')
             return None
+
