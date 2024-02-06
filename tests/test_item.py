@@ -23,11 +23,14 @@ def test_init_apply_discount():
 
 
 def test_init_name_change():
-    assert item2.name == 'Ноутбук'
+    assert item1.name == 'Смартфон'
     item1.name = 'New Name'
     assert item1.name == 'New Name'
 
-
+def test_init_name_change_very_long():
+    assert item1.name == 'New Name'
+    item1.name = '012345678910111213'
+    assert item1.name == '0123456789'
 
 
 
