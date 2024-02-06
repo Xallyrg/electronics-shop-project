@@ -33,6 +33,16 @@ def test_init_name_change_very_long():
     assert item1.name == '0123456789'
 
 
+def test_init_instantiate_from_csv():
+    pass
+
+
+def test_init_string_to_number():
+    assert Item.string_to_number('5') == 5
+    assert Item.string_to_number('5.0') == 5
+    assert Item.string_to_number('5.5') == 5
+    assert Item.string_to_number('5.5.1') == None
+    assert Item.string_to_number('asd') == None
 
 
 
