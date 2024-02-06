@@ -13,10 +13,18 @@ class Item:
         :param price: Цена за единицу товара.
         :param quantity: Количество товара в магазине.
         """
-        self.name = name
+        self.__name = name
         self.price = price
         self.quantity = quantity
         self.all.append(self)
+
+    @property
+    def name(self):
+        return self.__name
+
+    @name.setter
+    def name(self, new_name):
+        self.__name = new_name
 
     def calculate_total_price(self) -> float:
         """
@@ -32,3 +40,19 @@ class Item:
             """
         self.price = self.price * self.pay_rate
 
+
+    def instantiate_from_csv(cls, param):
+        pass
+
+
+    def string_to_number(cls, param):
+        pass
+
+
+
+
+# item = Item('Телефон', 10000, 5)
+#
+# print(item.name)
+# item.name=123
+# print(item.name)
