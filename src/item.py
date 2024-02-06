@@ -24,7 +24,10 @@ class Item:
 
     @name.setter
     def name(self, new_name):
-        self.__name = new_name
+        if len(new_name) < 11:
+            self.__name = new_name
+        else:
+            self.__name = new_name[0:10]
 
     def calculate_total_price(self) -> float:
         """
@@ -40,19 +43,8 @@ class Item:
             """
         self.price = self.price * self.pay_rate
 
-
     def instantiate_from_csv(cls, param):
         pass
 
-
     def string_to_number(cls, param):
         pass
-
-
-
-
-# item = Item('Телефон', 10000, 5)
-#
-# print(item.name)
-# item.name=123
-# print(item.name)
