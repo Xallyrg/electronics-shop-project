@@ -1,12 +1,16 @@
+import csv
+
+
 def is_digit(string):
     if string.isdigit():
-       return True
+        return True
     else:
         try:
             float(string)
             return True
         except ValueError:
             return False
+
 
 class Item:
     """
@@ -54,8 +58,17 @@ class Item:
         self.price = self.price * self.pay_rate
 
     @classmethod
-    def instantiate_from_csv(cls, path):
-        pass
+    def instantiate_from_csv(cls):
+        list_of_items = []
+        with open('items.csv', newline='') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                name = row['name']
+                price = float(row['price'])
+                quantity = int(row['quantity'])
+                i = cls(name, price, quantity)
+                list_of_items.append(i)
+        return list_of_items
 
     @staticmethod
     def string_to_number(number):
@@ -71,5 +84,3 @@ class Item:
         else:
             print('Это не число')
             return None
-
-
