@@ -73,13 +73,13 @@ class Item:
         :return:
         '''
         list_of_items = []
-        with open(path, newline='') as csvfile:
+        with open(path, newline='', encoding='windows-1251') as csvfile:
             reader = csv.DictReader(csvfile)
             for row in reader:
                 # print(row)
                 name = row['name']
-                price = float(row['price'])
-                quantity = int(row['quantity'])
+                price = Item.string_to_number(row['price'])
+                quantity = Item.string_to_number(row['quantity'])
                 i = cls(name, price, quantity)
                 list_of_items.append(i)
         return list_of_items
