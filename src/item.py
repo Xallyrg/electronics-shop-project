@@ -96,6 +96,14 @@ class Item:
         elif isinstance(number, str) and is_digit(number):
             return int(float(number))
         else:
-            print('Это не число')
-            return None
+            float(number)
+            # print('Это не число')
+            # return None
 
+# assert Item.string_to_number(5) == 5
+# assert Item.string_to_number(5.5) == 5
+# assert Item.string_to_number('5') == 5
+# assert Item.string_to_number('5.0') == 5
+# assert Item.string_to_number('5.5') == 5
+# assert Item.string_to_number('5.5.1') == None
+# assert Item.string_to_number('asd') == None
