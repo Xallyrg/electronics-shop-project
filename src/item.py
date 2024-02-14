@@ -1,15 +1,15 @@
 import csv
 
 
-def is_digit(string):
-    if string.isdigit():
-        return True
-    else:
-        try:
-            float(string)
-            return True
-        except ValueError:
-            return False
+# def is_digit(string):
+#     if string.isdigit():
+#         return True
+#     else:
+#         try:
+#             float(string)
+#             return True
+#         except ValueError:
+#             return False
 
 
 class Item:
@@ -93,10 +93,10 @@ class Item:
         """
         if isinstance(number, int) or isinstance(number, float):
             return int(number)
-        elif isinstance(number, str) and is_digit(number):
-            return int(float(number))
+        # elif isinstance(number, str) and is_digit(number):
+        #     return int(float(number))
         else:
-            float(number)
+            return int(float(number))
             # print('Это не число')
             # return None
 
