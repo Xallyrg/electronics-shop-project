@@ -50,6 +50,15 @@ def test_init_string_to_number():
     # assert Item.string_to_number('5.5.1') == None
     # assert Item.string_to_number('asd') == None
 
+def test_faild_to_convert_string_to_number():
+    with pytest.raises(ValueError):
+        Item.string_to_number('not a number')
 
+def test_repr():
+    assert repr(item1) == "Item('Смартфон', 10000, 20)"
+    assert repr(item2) == "Item('Ноутбук', 20000, 5)"
 
+def test_str():
+    assert str(item1) == "Смартфон"
+    assert str(item2) == "Ноутбук"
 
