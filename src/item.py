@@ -32,6 +32,12 @@ class Item:
         self.quantity = quantity
         self.all.append(self)
 
+    def __repr__(self):
+        return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
+
+    def __str__(self):
+        return f"{self.__name}"
+
     @property
     def name(self):
         '''
@@ -100,6 +106,7 @@ class Item:
             # print('Это не число')
             # return None
 
+
 # assert Item.string_to_number(5) == 5
 # assert Item.string_to_number(5.5) == 5
 # assert Item.string_to_number('5') == 5
@@ -107,3 +114,8 @@ class Item:
 # assert Item.string_to_number('5.5') == 5
 # assert Item.string_to_number('5.5.1') == None
 # assert Item.string_to_number('asd') == None
+
+# item1 = Item("Смартфон", 10000, 20)
+# print(str(item1))
+# assert repr(item1) == "Item('Смартфон', 10000, 20)"
+# assert str(item1) == 'Смартфон'
