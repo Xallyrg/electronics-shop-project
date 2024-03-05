@@ -1,5 +1,6 @@
 import csv
 
+
 class InstantiateCSVError(Exception):
     pass
 
@@ -46,7 +47,6 @@ class Item:
             return self.quantity + other.quantity
         else:
             raise ValueError('Складывать можно только объекты Item и дочерние от них.')
-
 
     @property
     def name(self):
@@ -104,19 +104,9 @@ class Item:
                 except KeyError:
                     raise InstantiateCSVError(f"Файл {path} поврежден.")
 
-
-
-
-
-
-
-
             return list_of_items
         except FileNotFoundError:
             raise FileNotFoundError(f"Отсутствует файл {path}.")
-
-
-
 
     @staticmethod
     def string_to_number(number):
@@ -133,7 +123,6 @@ class Item:
             return int(float(number))
             # print('Это не число')
             # return None
-
 
 # assert Item.string_to_number(5) == 5
 # assert Item.string_to_number(5.5) == 5
