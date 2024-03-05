@@ -39,7 +39,6 @@ class Keyboard(MixinLanguage, Item):
         super().__init__(name, price, quantity)
         self.all.append(self)
 
-
 # keyboard1 = Keyboard('клава', 15000, 10)
 #
 # print(keyboard1)
