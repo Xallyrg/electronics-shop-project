@@ -18,7 +18,7 @@ class Phone(Item):
     @property
     def number_of_sim(self):
         '''
-        позволяет смотреть на имя товара
+        позволяет смотреть на количество симок
         :return:
         '''
         return self.__number_of_sim
@@ -26,7 +26,7 @@ class Phone(Item):
     @number_of_sim.setter
     def number_of_sim(self, new_number_of_sim):
         '''
-        позволяет менять имя товара. Обрезает его до 10 символов
+        позволяет менять количество симок, проверяет что дают положительное целое число
         :return:
         '''
         if int(new_number_of_sim) == new_number_of_sim & new_number_of_sim > 0:
