@@ -41,6 +41,13 @@ def test_init_instantiate_from_csv():
     item1 = Item.all[2]
     assert item1.name == 'Смартфон'
 
+def test_init_instantiate_from_csv_error_no_file():
+    with pytest.raises(FileNotFoundError):
+        Item.instantiate_from_csv('src/itemssss.csv')
+
+def test_init_instantiate_from_csv_error_file_is_damaged():
+    with pytest.raises(InstantiateCSVError):
+        Item.instantiate_from_csv('src/damaged_items.csv')
 
 def test_init_string_to_number():
     assert Item.string_to_number(5) == 5
