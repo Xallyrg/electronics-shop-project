@@ -86,16 +86,23 @@ class Item:
         :return:
         '''
         list_of_items = []
-        with open(path, newline='', encoding='windows-1251') as csvfile:
-            reader = csv.DictReader(csvfile)
-            for row in reader:
-                # print(row)
-                name = row['name']
-                price = Item.string_to_number(row['price'])
-                quantity = Item.string_to_number(row['quantity'])
-                i = cls(name, price, quantity)
-                list_of_items.append(i)
-        return list_of_items
+
+        try:
+            with open(path, newline='', encoding='windows-1251') as csvfile:
+                reader = csv.DictReader(csvfile)
+                for row in reader:
+                    # print(row)
+                    name = row['name']
+                    price = Item.string_to_number(row['price'])
+                    quantity = Item.string_to_number(row['quantity'])
+                    i = cls(name, price, quantity)
+                    list_of_items.append(i)
+            return list_of_items
+        except FileNotFoundError:
+            raise FileNotFoundError(f"Отсутствует файл {path}.")
+
+
+
 
     @staticmethod
     def string_to_number(number):
