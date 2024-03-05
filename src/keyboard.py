@@ -3,7 +3,7 @@ from src.item import Item
 
 class MixinLanguage:
 
-    def __init__(self, name, price, quantity, language='en'):
+    def __init__(self, name, price, quantity, language='EN'):
         """
         Создает язык английский, пробрасывает остальное в инициализатор Item
         """
@@ -19,10 +19,10 @@ class MixinLanguage:
         return self.__language
 
     def change_lang(self):
-        if self.language == 'en':
-            self.__language = 'ru'
+        if self.language == 'EN':
+            self.__language = 'RU'
         else:
-            self.__language = 'en'
+            self.__language = 'EN'
 
 
 class Keyboard(MixinLanguage, Item):
@@ -38,7 +38,7 @@ class Keyboard(MixinLanguage, Item):
         """
         super().__init__(name, price, quantity)
         self.all.append(self)
-
+#
 # keyboard1 = Keyboard('клава', 15000, 10)
 #
 # print(keyboard1)

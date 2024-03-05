@@ -10,7 +10,7 @@ def test_init():
     assert keyboard1.name == "клава"
     assert keyboard1.price == 15000
     assert keyboard1.quantity == 10
-    assert keyboard1.language == 'en'
+    assert keyboard1.language == 'EN'
 
 
 def test_try_to_change_lang():
@@ -19,8 +19,8 @@ def test_try_to_change_lang():
 
 
 def test_change_lang_by_method():
-    assert keyboard1.language == 'en'
+    assert keyboard1.language == 'EN'
     keyboard1.change_lang()
-    assert keyboard1.language == 'ru'
+    assert keyboard1.language == 'RU'
     keyboard1.change_lang()
-    assert keyboard1.language == 'en'
+    assert keyboard1.language == 'EN'
