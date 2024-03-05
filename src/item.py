@@ -1,5 +1,8 @@
 import csv
 
+class InstantiateCSVError(Exception):
+    pass
+
 
 # def is_digit(string):
 #     if string.isdigit():
@@ -90,13 +93,24 @@ class Item:
         try:
             with open(path, newline='', encoding='windows-1251') as csvfile:
                 reader = csv.DictReader(csvfile)
-                for row in reader:
-                    # print(row)
-                    name = row['name']
-                    price = Item.string_to_number(row['price'])
-                    quantity = Item.string_to_number(row['quantity'])
-                    i = cls(name, price, quantity)
-                    list_of_items.append(i)
+                try:
+                    for row in reader:
+                        # print(row)
+                        name = row['name']
+                        price = Item.string_to_number(row['price'])
+                        quantity = Item.string_to_number(row['quantity'])
+                        i = cls(name, price, quantity)
+                        list_of_items.append(i)
+                except KeyError:
+                    raise InstantiateCSVError(f"Файл {path} поврежден.")
+
+
+
+
+
+
+
+
             return list_of_items
         except FileNotFoundError:
             raise FileNotFoundError(f"Отсутствует файл {path}.")
